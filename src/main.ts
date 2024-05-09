@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder, OpenAPIObject } from '@nestjs/swagger';
+import { config } from 'dotenv';
 
 function buildApiDocs(app: NestExpressApplication): void {
   const config: Omit<OpenAPIObject, 'paths'> = new DocumentBuilder()
@@ -21,6 +22,8 @@ async function bootstrap() {
     abortOnError: false,
   });
   buildApiDocs(app);
-  await app.listen(3000);
+  const port = Number(config().parsed['PORT']);
+  await app.listen(port);
+  console.info(`App RMS Order is running on port  ${port}`);
 }
 bootstrap();

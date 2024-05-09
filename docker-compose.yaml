@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  order:
+    build:
+      dockerfile: Dockerfile
+    container_name: rms-order
+    restart: always
+    ports: 
+      - "3000:3000"
+    networks:
+      - rms-network
+  db:
+    image: mariadb
+    container_name: rms-sql-db
+    restart: always
+    ports: 
+      - "3306:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${DB_DATABASE}
+      - MARIADB_USER=${DB_USER}
+      - MARIADB_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./docker/mariadb:/var/lib/mysql
+      - ./migrations:/docker-entrypoint-initdb.d
+    networks:
+      - rms-network  
+
+volumes:
+  mysql-data:
+
+networks:
+  rms-network:
