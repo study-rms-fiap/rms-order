@@ -26,8 +26,10 @@ import { UpdateProductPresenter } from './presenters/update-product.presenter';
 import { FindCategoryByIdUseCase } from 'src/use-cases/find-category-by-id.use-case';
 import { UpdateProductUseCase } from 'src/use-cases/update-product.use-case';
 import { DeleteProductUseCase } from 'src/use-cases/delete-product.use-case';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller()
+@ApiTags('Products')
+@Controller('Products')
 export class ProductController {
   constructor(
     private readonly productRepository: ProductRepositoryAdapter,

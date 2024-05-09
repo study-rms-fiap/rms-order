@@ -6,6 +6,7 @@ import { ProductCategory } from './domain/pedido/product-category.domain';
 import { ProductController } from './gateways/product/product.controller';
 import { ProductRepositoryAdapter } from './gateways/product/product.repository';
 import { ProductCategoryRepositoryAdapter } from './gateways/product-category/product-category.repository';
+import { ProductCategoryController } from './gateways/product-category/product-category.controller';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { ProductCategoryRepositoryAdapter } from './gateways/product-category/pr
     }),
     TypeOrmModule.forFeature([Product, ProductCategory]),
   ],
-  controllers: [ProductController],
+  controllers: [ProductController, ProductCategoryController],
   providers: [ProductRepositoryAdapter, ProductCategoryRepositoryAdapter],
 })
 export class AppModule {}

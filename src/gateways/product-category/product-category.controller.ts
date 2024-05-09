@@ -8,7 +8,7 @@ import {
 import { CreateProductCategoryDto } from './dto/create-product-category.dto';
 import { CreateProductCategoryPresenter } from './presenters/product-category.presenter';
 
-@ApiTags('Category')
+@ApiTags('Categories')
 @Controller('categories')
 export class ProductCategoryController {
   constructor(
