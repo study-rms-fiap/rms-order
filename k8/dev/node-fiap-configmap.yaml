@@ -4,7 +4,10 @@ metadata:
   name: node-fiap-configmap
   namespace: rms
 data:
-  HOST_DB: svc-db-order:3306
-  USER_DB: root
-  PASS_DB: fiap
-  DATABASE_DB: order
+  DB_HOST: svc-db-order
+  DB_PORT: '3306'
+  DB_USER: root
+  DB_PASSWORD: fiap
+  DB_DATABASE: order
+  DB_ROOT_PASSWORD: fiap
+  PORT: '3000'

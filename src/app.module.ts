@@ -12,11 +12,11 @@ import { ProductCategoryController } from './gateways/product-category/product-c
   imports: [
     TypeOrmModule.forRoot({
       type: 'mariadb',
-      host: config().parsed['DB_HOST'],
-      port: Number(config().parsed['DB_PORT']),
-      username: config().parsed['DB_USER'],
-      password: config().parsed['DB_PASSWORD'],
-      database: config().parsed['DB_DATABASE'],
+      host: config().parsed['DB_HOST'] || process.env.DB_HOST,
+      port: Number(config().parsed['DB_PORT'] || process.env.DB_PORT),
+      username: config().parsed['DB_USER'] || process.env.DB_USER,
+      password: config().parsed['DB_PASSWORD'] || process.env.DB_PASSWORD,
+      database: config().parsed['DB_DATABASE'] || process.env.DB_DATABASE,
       synchronize: true,
       autoLoadEntities: true,
     }),
@@ -25,4 +25,16 @@ import { ProductCategoryController } from './gateways/product-category/product-c
   controllers: [ProductController, ProductCategoryController],
   providers: [ProductRepositoryAdapter, ProductCategoryRepositoryAdapter],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log('DB HOST ', config().parsed['DB_HOST'] || process.env.DB_HOST);
+    console.log(
+      'DB_PORT',
+      Number(config().parsed['DB_PORT'] || process.env.DB_PORT),
+    );
+    console.log(
+      'APP PORT',
+      Number(config().parsed['PORT'] || process.env.PORT),
+    );
+  }
+}

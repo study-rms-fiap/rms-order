@@ -22,7 +22,8 @@ async function bootstrap() {
     abortOnError: false,
   });
   buildApiDocs(app);
-  const port = Number(config().parsed['PORT']);
+  const port = Number(config().parsed['PORT'] || process.env.PORT);
+  console.info(`APP was assigned port ${port} to be executed`);
   await app.listen(port);
   console.info(`App RMS Order is running on port  ${port}`);
 }

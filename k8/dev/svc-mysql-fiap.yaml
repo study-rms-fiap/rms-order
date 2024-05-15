@@ -8,7 +8,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 3306
-      nodePort: 30001
+    - port: 3306 #porta interna
+      nodePort: 30001 #porta para acesso no host
   selector:
     app: mysql-fiap
