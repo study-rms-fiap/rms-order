@@ -60,6 +60,7 @@ export class ProductController {
     const { name, price, categoryId, description } = inputDto;
     const category: ProductCategory =
       await this.productCategoryRepository.findById(categoryId);
+      
     const product: Product = new Product(
       name,
       price,
@@ -67,6 +68,7 @@ export class ProductController {
       ProductStatusEnum.ACTIVATED,
       description,
     );
+
     const newProduct = await CreateProductUseCase.run(
       this.productRepository,
       product,
