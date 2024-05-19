@@ -33,7 +33,7 @@ on:
 
 env:
   AWS_REGION: ${{ var.AWS_REGION }}         
-  ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }} 
+  ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }} 
   CONTAINER_NAME: rms-api-pagamentos
 
 permissions:
@@ -53,7 +53,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: ${{ vars.AWS_REGION }}
 
     - name: Login to Amazon ECR
       id: login-ecr
