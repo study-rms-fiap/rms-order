@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: node-fiap-configmap
+  namespace: rms
+data:
+  DB_HOST: svc-db-order
+  DB_PORT: '3306'
+  DB_USER: root
+  DB_PASSWORD: fiap
+  DB_DATABASE: order # vai ficar
+  DB_ROOT_PASSWORD: fiap
+  PORT: '3000' # vai ficar

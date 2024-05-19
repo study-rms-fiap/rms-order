@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-node-fiap
+  namespace: rms
+  labels:
+    app: node-fiap
+spec:
+  selector:
+    app: node-fiap
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80 # Porta no Load Balancer
+      targetPort: 3000 # Porta do Pod
