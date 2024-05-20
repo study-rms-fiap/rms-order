@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node-fiap-container
-          image: 211125380755.dkr.ecr.us-east-1.amazonaws.com/api-order:latest
+          image: nginxdemos/hello:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
