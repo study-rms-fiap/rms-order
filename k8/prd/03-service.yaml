@@ -1,15 +1,30 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: svc-node-fiap
+#   namespace: rms
+#   labels:
+#     app: node-fiap
+# spec:
+#   selector:
+#     app: node-fiap
+#   type: LoadBalancer
+#   ports:
+#     - protocol: TCP
+#       port: 80 # Porta no Load Balancer
+#       targetPort: 3000 # Porta do Pod, e o que vai funcionar local
 apiVersion: v1
 kind: Service
 metadata:
   name: svc-node-fiap
   namespace: rms
-  labels:
-    app: node-fiap
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 spec:
+  ports:
+  - port: 3000 # valor original era 8080
+    protocol: TCP
+  type: LoadBalancer
   selector:
     app: node-fiap
-  type: LoadBalancer
-  ports:
-    - protocol: TCP
-      port: 80 # Porta no Load Balancer
-      targetPort: 3000 # Porta do Pod, e o que vai funcionar local
