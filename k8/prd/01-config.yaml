@@ -4,9 +4,5 @@ metadata:
   name: node-fiap-configmap
   namespace: rms
 data:
-  DB_HOST: $DB_HOST
   DB_PORT: '3306'
-  DB_USER: $DB_USER
-  DB_PASSWORD: $DB_PASSWORD
-  DB_DATABASE: $DB_DATABASE
-  PORT: $PORT
+  PORT: '3000'
