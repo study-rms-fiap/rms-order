@@ -1,12 +1,9 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ProductCategoryRepositoryAdapter } from './product-category.repository';
-import {
-  IProductCategory,
-  ProductCategory,
-} from 'src/domain/pedido/product-category.domain';
 import { CreateProductCategoryDto } from './dto/create-product-category.dto';
 import { CreateProductCategoryPresenter } from './presenters/product-category.presenter';
+import { IProductCategory, ProductCategory } from 'src/domain/product/product-category.domain';
 
 @ApiTags('Categories')
 @Controller('categories')

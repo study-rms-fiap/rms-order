@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductController } from './product.controller';
 import { ProductRepositoryAdapter } from './product.repository';
-import { Product } from '../../domain/pedido/product.domain';
+import { Product } from '../../domain/product/product.domain';
 
 describe('ProductController', () => {
   let controller: ProductController;

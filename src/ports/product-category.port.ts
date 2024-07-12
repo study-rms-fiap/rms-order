@@ -1,4 +1,4 @@
-import { ProductCategory } from 'src/domain/pedido/product-category.domain';
+import { ProductCategory } from "src/domain/product/product-category.domain";
 
 export interface IProductCategoryRepositoryPort {
   save(category: ProductCategory): Promise<{ categoryId: string }>;

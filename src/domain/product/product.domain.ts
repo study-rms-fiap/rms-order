@@ -26,7 +26,6 @@ export enum ProductStatusEnum {
   DEACTIVATED = 'deactivated',
 }
 
-// @todo adicionar anotaçoes para o banco de dados
 @Entity()
 export class Product implements IProduct {
   @PrimaryGeneratedColumn('uuid')

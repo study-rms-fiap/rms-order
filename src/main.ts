@@ -6,7 +6,7 @@ import { config } from 'dotenv';
 
 function buildApiDocs(app: NestExpressApplication): void {
   const config: Omit<OpenAPIObject, 'paths'> = new DocumentBuilder()
-    .setTitle('RMS Pedido')
+    .setTitle('RMS Product')
     .setDescription(
       'Tech challenge for postgraduate studies in software architecture \n Order microservice',
     )
@@ -25,6 +25,6 @@ async function bootstrap() {
   const port = Number(config().parsed['PORT'] || process.env.PORT);
   console.info(`APP was assigned port ${port} to be executed`);
   await app.listen(port);
-  console.info(`App RMS Order is running on port  ${port}`);
+  console.info(`App RMS order is running on port  ${port}`);
 }
 bootstrap();

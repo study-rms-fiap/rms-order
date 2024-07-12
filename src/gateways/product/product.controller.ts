@@ -2,7 +2,7 @@ import {
   IProduct,
   Product,
   ProductStatusEnum,
-} from 'src/domain/pedido/product.domain';
+} from 'src/domain/product/product.domain';
 import { ProductRepositoryAdapter } from './product.repository';
 import {
   Body,
@@ -18,7 +18,6 @@ import { FindProductByIdUseCase } from 'src/use-cases/find-product-by-id.use-cas
 import { FindProductByCategoryUseCase } from 'src/use-cases/find-product-by-category.use-case';
 import { CreateProductDto } from './dto/create-product.dto';
 import { CreateProductPresenter } from './presenters/create-product.presenter';
-import { ProductCategory } from 'src/domain/pedido/product-category.domain';
 import { ProductCategoryRepositoryAdapter } from '../product-category/product-category.repository';
 import { CreateProductUseCase } from 'src/use-cases/create-product.use-case';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -27,6 +26,7 @@ import { FindCategoryByIdUseCase } from 'src/use-cases/find-category-by-id.use-c
 import { UpdateProductUseCase } from 'src/use-cases/update-product.use-case';
 import { DeleteProductUseCase } from 'src/use-cases/delete-product.use-case';
 import { ApiTags } from '@nestjs/swagger';
+import { ProductCategory } from 'src/domain/product/product-category.domain';
 
 @ApiTags('Products')
 @Controller('Products')

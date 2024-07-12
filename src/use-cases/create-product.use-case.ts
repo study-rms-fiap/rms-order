@@ -1,4 +1,4 @@
-import { Product } from 'src/domain/pedido/product.domain';
+import { Product } from 'src/domain/product/product.domain';
 import { IProductRepositoryPort } from 'src/ports/product.repository.port';
 
 export class CreateProductUseCase {

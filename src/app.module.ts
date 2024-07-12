@@ -1,15 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
-import { Product } from './domain/pedido/product.domain';
-import { ProductCategory } from './domain/pedido/product-category.domain';
+import { Product } from './domain/product/product.domain';
+import { ProductCategory } from './domain/product/product-category.domain';
 import { ProductController } from './gateways/product/product.controller';
 import { ProductRepositoryAdapter } from './gateways/product/product.repository';
 import { ProductCategoryRepositoryAdapter } from './gateways/product-category/product-category.repository';
 import { ProductCategoryController } from './gateways/product-category/product-category.controller';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
+    HttpModule,
     TypeOrmModule.forRoot({
       type: 'mariadb',
       host: config().parsed['DB_HOST'] || process.env.DB_HOST,
@@ -33,7 +35,7 @@ export class AppModule {
       Number(config().parsed['DB_PORT'] || process.env.DB_PORT),
     );
     console.log(
-      'APP PORT',
+      'RMS Product port',
       Number(config().parsed['PORT'] || process.env.PORT),
     );
   }

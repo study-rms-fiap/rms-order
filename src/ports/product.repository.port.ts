@@ -1,4 +1,4 @@
-import { IProduct } from 'src/domain/pedido/product.domain';
+import { IProduct } from 'src/domain/product/product.domain';
 
 export interface IProductRepositoryPort {
   findAll(): Promise<Array<IProduct>>;

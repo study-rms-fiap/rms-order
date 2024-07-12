@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ProductCategory } from 'src/domain/pedido/product-category.domain';
+import { ProductCategory } from 'src/domain/product/product-category.domain';
 import { IProductCategoryRepositoryPort } from 'src/ports/product-category.port';
 import { Repository } from 'typeorm';
 

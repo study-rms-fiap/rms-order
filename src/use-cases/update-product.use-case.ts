@@ -1,4 +1,4 @@
-import { Product } from 'src/domain/pedido/product.domain';
+import { Product } from 'src/domain/product/product.domain';
 import { ProductRepositoryAdapter } from 'src/gateways/product/product.repository';
 
 export class UpdateProductUseCase {
